@@ -7,8 +7,7 @@ The app lets a researcher load one or more `.lsm` files, run automated nucleus s
 ## Features
 
 - Load single or multiple `.lsm` files
-- Automatic nucleus segmentation
-- 3D spot detection inside nuclei only
+- Automatic segmentation and 3D spot detection 
 - Multi-channel visualization 
 - Batch CSV export of spot counts
 
