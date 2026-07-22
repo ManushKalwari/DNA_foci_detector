@@ -2,9 +2,6 @@
 
 A desktop tool for counting DNA damage foci from fluorescence microscopy `.lsm` z-stacks.
 
-
-## Why this is useful
-
 Counting DNA damage foci manually is slow and repetitive. Researchers often need to open 3D `.lsm` files in microscopy software, move through z-slices, identify nuclei, and count bright foci by hand. This tool automates that workflow and gives a visual overlay so user can inspect the result. The goal is to make routine foci counting faster and more consistent.
 
 ## Working
