@@ -20,6 +20,9 @@ The spot detector removes broad background haze, normalizes each z-slice, and re
 The final output is the foci count for each nucleus.
 
 
+<img width="1352" height="741" alt="spots_detected_window" src="https://github.com/user-attachments/assets/309524ae-b8da-40e2-b78e-6d39a4849c2a" />
+
+
 The app uses Napari, a Python-based viewer for multidimensional microscopy data. It lets the user inspect z-stacks, image channels, segmentation masks, and detected foci overlays in the same window.
 
 
