@@ -1,13 +1,30 @@
 # DNA Foci Detector
 
-Desktop tool for detecting DNA damage foci in `.lsm` microscopy stacks.
+A desktop tool for counting DNA damage foci from fluorescence microscopy `.lsm` z-stacks.
 
-The app lets a researcher load one or more `.lsm` files, run automated nucleus segmentation and spot detection, visualize detected spots in 3D, and export spot counts as CSV.
 
-## Features
+## Why this is useful
 
-- Load single or multiple `.lsm` files
-- Automatic segmentation and 3D spot detection 
-- Multi-channel visualization 
-- Batch CSV export of spot counts
+Counting DNA damage foci manually is slow and repetitive. Researchers often need to open 3D `.lsm` files in microscopy software, move through z-slices, identify nuclei, and count bright foci by hand. This tool automates that workflow and gives a visual overlay so user can inspect the result. The goal is to make routine foci counting faster and more consistent.
+
+## Working
+
+The pipeline has 2 stages - nucleus segmentation and spot detection
+
+### Nucleus segmentation
+
+The segmenter creates a 2D projection from the nucleus channel. It normalizes and smooths the image, then uses a bandpass-style response to enhance the nucleus boundary.
+It searches over a range of circular/annular templates and selects the top two nucleus candidates. These are converted into 2D labels.
+The 2D nucleus labels are then expanded into 3D masks using the z-intensity profile of each nucleus. The mask is softly tapered across z, with padding and radius scaling so that foci near the top, bottom, or edge of the nucleus are not removed too aggressively.
+
+### Spot detection
+
+The spot detector removes broad background haze, normalizes each z-slice, and reduces grain noise with median filtering. It then uses a multiscale Difference-of-Gaussians response to enhance compact bright foci. Candidate spots are extracted as 3D local maxima, filtered by size, local contrast, SNR, merged if duplicated, and assigned to the correct nucleus using the 3D label mask.
+The final output is the foci count for each nucleus.
+
+## Napari interface
+
+The app uses Napari as the image viewer. Napari is a Python-based viewer for multidimensional microscopy data. It lets the user inspect z-stacks, image channels, segmentation masks, and detected foci overlays in the same window.
+
+
 
