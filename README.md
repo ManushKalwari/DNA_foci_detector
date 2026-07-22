@@ -19,9 +19,8 @@ The 2D nucleus labels are then expanded into 3D masks using the z-intensity prof
 The spot detector removes broad background haze, normalizes each z-slice, and reduces grain noise with median filtering. It then uses a multiscale Difference-of-Gaussians response to enhance compact bright foci. Candidate spots are extracted as 3D local maxima, filtered by size, local contrast, SNR, merged if duplicated, and assigned to the correct nucleus using the 3D label mask.
 The final output is the foci count for each nucleus.
 
-## Napari interface
 
-The app uses Napari as the image viewer. Napari is a Python-based viewer for multidimensional microscopy data. It lets the user inspect z-stacks, image channels, segmentation masks, and detected foci overlays in the same window.
+The app uses Napari, a Python-based viewer for multidimensional microscopy data. It lets the user inspect z-stacks, image channels, segmentation masks, and detected foci overlays in the same window.
 
 
 
