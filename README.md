@@ -14,8 +14,8 @@ The pipeline has 2 stages - nucleus segmentation and spot detection
 
 ### Nucleus segmentation
 
-The segmenter creates a 2D projection from the nucleus channel. It normalizes and smooths the image, then uses a bandpass-style response to enhance the nucleus boundary.
-It searches over a range of circular/annular templates and selects the top two nucleus candidates. These are converted into 2D labels.
+The segmenter creates a 2D projection from the nucleus channel. It normalizes, smooths the image, and uses a bandpass-style response to enhance the nucleus boundary.
+It searches over a range of circular templates and selects the top 2 nucleus candidates. These are converted into 2D labels.
 The 2D nucleus labels are then expanded into 3D masks using the z-intensity profile of each nucleus. The mask is softly tapered across z, with padding and radius scaling so that foci near the top, bottom, or edge of the nucleus are not removed too aggressively.
 
 ### Spot detection
