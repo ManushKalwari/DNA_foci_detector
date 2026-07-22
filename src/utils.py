@@ -24,7 +24,7 @@ def load_lsm(file_path: str) -> np.ndarray:
 
 def extract_channels(
     img: np.ndarray,
-    roi_channel: int = 0,
+    roi_channel: int = 2,
     spot_channel: int = 1,
 ) -> tuple[np.ndarray, np.ndarray]:
     """
@@ -43,9 +43,6 @@ def extract_channels(
 
 
 
-
-from pathlib import Path
-import pandas as pd
 
 
 def save_counts_csv(results, output_dir: str | None = None) -> str:
@@ -75,12 +72,12 @@ def save_counts_csv(results, output_dir: str | None = None) -> str:
     for r in results:
 
         rows.append({
-            "filename_cellnumber": f"{r.file_stem}_cell1",
+            "filename_cellnumber": f"{r.file_stem}_nucleus1",
             "spot_count": int(r.nucleus1_count),
         })
 
         rows.append({
-            "filename_cellnumber": f"{r.file_stem}_cell2",
+            "filename_cellnumber": f"{r.file_stem}_nucleus2",
             "spot_count": int(r.nucleus2_count),
         })
 
